@@ -1,26 +1,29 @@
-import { useState } from 'react'
+
 import './App.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import LogIn from './pages/Login.jsx';
+
+import Nav from './component/Nav.jsx';
+import Dashboard from './pages/Dashboard.jsx';
+import AddQ from './pages/AddQ.jsx';
 
 function App() {
- 
+
 
   return (
     <>
 
-<Router>
-      <div>
-        <Nav />
-        <Routes>
-          <Route path="/" element={<Home  />} />
-          <Route path="/form/signIn" element={<SignInForm  />} />
-          <Route path="/form/logIn" element={<LogIn/>} />
-        </Routes>
-        {/* <Footer/> */}
-      </div>
-    </Router>
-   
+      <Router>
+        <div>
+          <Nav />
+         
+          <Routes>
+          <Route path='/' element={ <Dashboard />}></Route>
+            <Route path='/addQuestion' element={<AddQ/>}></Route>
+          </Routes>
+         
+        </div>
+      </Router>
+
     </>
   )
 }

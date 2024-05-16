@@ -1,0 +1,29 @@
+.navbar{
+    display: flex;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+  
+}
+
+.nav-link{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} 
+.search{
+    position: relative;
+    left: 56rem;
+    padding: 36px;
+    width: 23rem;
+}
+
+.table{
+    margin: 20px;
+    padding: 20px;
+    height: 20rem;
+    width: 92vw;
+    right: 26px;
+    position: relative;
+}

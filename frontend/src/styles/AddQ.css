@@ -1,0 +1,79 @@
+.form-select{
+    
+    margin: 12px;
+    width: 13rem;
+    position: relative;
+    top: 5rem;
+}
+/* .container{
+    display: flex;
+} */
+.outerContainer{
+    display: grid;
+    grid-template-areas: 'goals courses textarea textarea'
+                          'topic weightage textarea textarea'
+                          'dl qType textarea textarea'
+                          'question question textarea textarea';
+}
+
+
+.textarea{
+    width: 33vw;
+    height: 100vh;
+    border: 2px solid rgb(3, 99, 43);
+  
+}
+.preview{
+    height: 100vh;
+}
+.qInput{
+    border: none;
+    display: flex;
+}
+.hintInput{
+    border: none;
+    display: flex;
+}
+
+.solutionInput{
+    border: none;
+    display: flex;
+}
+
+.hint{
+
+    top: 11rem;
+}
+.solution{
+    top: 12rem;
+}
+.ques{
+    top: 6rem;
+}
+
+.preInput{
+    display: flex;
+    margin: 23px;
+}
+.optionInput{
+    border: none;
+    display: flex;
+
+}
+
+.question{
+    
+    position: relative;
+    width: 12rem;
+    right: 33rem;
+}
+.addBtn{
+   
+    position: relative;
+    right: 31rem;
+    top: 6rem;
+}
+.btn{
+    display: flex;
+    margin: 10px;
+}
