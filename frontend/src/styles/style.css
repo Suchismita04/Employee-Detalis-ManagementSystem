@@ -4,6 +4,8 @@
     top: 0px;
     left: 0px;
     width: 100vw;
+    height: 4rem;
+    background: rgb(4, 192, 145);
   
 }
 
@@ -15,8 +17,9 @@
 .search{
     position: relative;
     left: 56rem;
-    padding: 36px;
-    width: 23rem;
+    padding: 14px;
+    width: 24rem;
+    height: 4rem;
 }
 
 .table{

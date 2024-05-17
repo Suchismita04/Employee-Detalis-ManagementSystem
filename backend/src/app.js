@@ -2,7 +2,7 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 const app = express()
-import topicRoutes from './routes/iitjeeTopic.router.js';
+import saveQuestionRoutes from './routes/SaveQuestion.router.js';
 
 
 // use  is used for configuration or middileware
@@ -24,7 +24,8 @@ app.use(cookieParser())
 
 
 // routes decleration
-app.use('/api/v1/iitjeeTopics', topicRoutes);
+app.use('/api/v1/users', saveQuestionRoutes);
+
 
 
 export { app }

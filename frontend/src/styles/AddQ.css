@@ -20,7 +20,7 @@
 .textarea{
     width: 33vw;
     height: 100vh;
-    border: 2px solid rgb(3, 99, 43);
+ border: 2px solid rgb(4, 192, 145);
   
 }
 .preview{
@@ -28,16 +28,29 @@
 }
 .qInput{
     border: none;
-    display: flex;
+    
+    margin: 2px;
+    top: 10rem;
+    position: absolute;
+    right: 16rem;
 }
 .hintInput{
+   
     border: none;
-    display: flex;
+    margin: 2px;
+    top: 15rem;
+    position: absolute;
+    right: 17rem;
 }
 
 .solutionInput{
     border: none;
-    display: flex;
+   
+    margin: 2px;
+    top: 24rem;
+    position: absolute;
+
+    right: 16rem;
 }
 
 .hint{
@@ -76,4 +89,12 @@
 .btn{
     display: flex;
     margin: 10px;
+}
+.checkBox{
+    position: relative;
+    right: 11rem;
+}
+span{
+    left: 1rem;
+    position: relative;
 }
