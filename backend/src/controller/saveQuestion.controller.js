@@ -7,20 +7,18 @@ import { ApiError } from '../utilities/ApiError.js';
 const saveQuestion = asyncHandler(async (req, res) => {
   try {
     // Extract data from request body
-    const { question, author, topics } = req.body;
+    const { question, author, topic } = req.body;
     console.log("question from controller=", question)
-    console.log("topics from controller=", topics)
+    console.log("topics from controller=", topic)
     console.log("author from controller=", author)
     // Create a new question instance
     const newQuestion = new SaveQuestion({
       question,
       author,
-      topics
+      topic
     })
 
-    if(!topics){
-      console.log("topic is not  fatched")
-    }
+    
 
 
     // Save the question to the database
@@ -38,7 +36,9 @@ const saveQuestion = asyncHandler(async (req, res) => {
 const showQinfo=asyncHandler(async(req,res)=>{
  try {
    const showData=await SaveQuestion.find()
+   console.log("res=",showData)
    res.json(showData)
+   
  } catch (error) {
   throw new ApiError(500,'Server Error')
  }

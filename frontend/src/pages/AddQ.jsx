@@ -105,7 +105,7 @@ function AddQ() {
    
 
     const api = axios.create({
-        baseURL: '/api',
+        baseURL: '/api/v1',
         withCredentials: true,
     });
     const handleSubmit = async (event) => {
@@ -114,7 +114,7 @@ function AddQ() {
             const topicNames = topics.map(topic => topic.name)
             console.log("topics name=", topicNames)
             
-            const res = await api.post('/v1/users/saveQuestion', {
+            const res = await api.post('/users/saveQuestion', {
                 question: previewQValue,
                 topic: topicNames
 
