@@ -3,6 +3,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 const app = express()
 import saveQuestionRoutes from './routes/SaveQuestion.router.js';
+import userRouter from "./routes/user.router.js"
 
 
 // use  is used for configuration or middileware
@@ -25,6 +26,7 @@ app.use(cookieParser())
 
 // routes decleration
 app.use('/api/v1/users', saveQuestionRoutes);
+app.use("/api/v1/users",userRouter)
 
 
 

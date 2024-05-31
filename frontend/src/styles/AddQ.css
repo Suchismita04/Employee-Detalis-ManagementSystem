@@ -82,9 +82,9 @@
 }
 .addBtn{
    
-    position: relative;
-    right: 31rem;
-    top: 6rem;
+    position: absolute;
+    top: 20rem;
+    left: 6rem;
 }
 .btn{
     display: flex;
@@ -97,4 +97,12 @@
 span{
     left: 1rem;
     position: relative;
+}
+.addQbtn{
+    position: relative;
+    /* right: -26rem; */
+    left: 30rem;
+}
+input{
+    margin: 7px;
 }

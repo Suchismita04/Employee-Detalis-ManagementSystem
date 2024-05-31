@@ -4,7 +4,7 @@ import { Link ,useNavigate} from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { data } from "../constants.js";
-import select from 'react-select'
+
 
 function AddQ() {
     const [questionValue, setQuestionValue] = useState("");
@@ -15,7 +15,7 @@ function AddQ() {
     const [previewSolValue, setPreviewSolValue] = useState("");
     const [fields, setFields] = useState([{ question: '', correct: false }]);
     const [options, setOptions] = useState([]);
-    const [correctOptions, setCorrectOptions] = useState([]);
+
     const navigate=useNavigate();
 
     const handleChangeQuestion = (event) => {
@@ -37,7 +37,7 @@ function AddQ() {
 
     const convertToSuperscript = (text) => {
         let superscriptText = text.replace(/\^2/g, "²");
-        // Add more conversions as needed
+       
         return superscriptText;
     };
 
@@ -94,32 +94,26 @@ function AddQ() {
         setFields([...fields, { question: '', correct: false }]);
       };
 
-    const handleOptionChange = (index, value) => {
-        const optionValue = e.target.value;
-        setOptions([...options, optionValue]);
-        const questionWithOptions =
-            question + (options.length > 0 ? ` (${options.join(", ")})` : "");
-        setQuestion(questionWithOptions);
-    };
+
 
    
 
     const api = axios.create({
-        baseURL: '/api/v1',
+        baseURL: '/api',
         withCredentials: true,
     });
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
             const topicNames = topics.map(topic => topic.name)
-            console.log("topics name=", topicNames)
+            // console.log("topics name=", topicNames)
             
             const res = await api.post('/v1/users/saveQuestion', {
                 question: previewQValue,
-                topic: topicNames
+                topic: selectedTopic
 
             })
-           navigate('/')
+           navigate('/dashboard')
             console.log("Data Has been saved Successfully", res.data)
 
         } catch (error) {
@@ -255,15 +249,57 @@ function AddQ() {
                                 value={questionValue}
                                 rows="3"
                             ></textarea>
+                            <label
+                                htmlFor="exampleFormControlTextarea1"
+                                className="form-label"
+                            >
+                                <b>Hint</b>
+                            </label>
+                            <textarea
+                                className="form-control"
+                                id="hintTextarea"
+                                value={hintValue}
+                                onChange={handleChangeHint}
+                                name="hint"
+                                rows="3"
+                            ></textarea>
+                             <label
+                                htmlFor="exampleFormControlTextarea1"
+                                className="form-label"
+                            >
+                                <b>Solution</b>
+                            </label>
+                            <textarea
+                                className="form-control"
+                                id="solTextarea"
+                                value={solutionValue}
+                                onChange={handleChangeSolution}
+                                name="hint"
+                                rows="3"
+                            ></textarea>
+                             <label
+                        htmlFor="exampleFormControlTextarea1"
+                        className="form-label preInput"
+                    >
+                    </label>
+                    {fields.map((field, index) => (
+                            
+                            <div key={index} className="checkBox">
+                            <input type="checkbox" checked={field.correct} readOnly />
+                            <span>{field.question}</span>
+                            <span>{field.correct}</span>
+                          </div>
+
+                    ))}
                         </div>
                     </div>
 
                     {/* add btn */}
                     <div className="container addBtn">
                         <label htmlFor="exampleFormControlTextarea1" className="form-label">
-                            <b>Questions & Answers</b>
+                            <b>Options</b>
                         </label>
-                        <button className="btn btn-success" onClick={handleButtonClick}>
+                        <button className="btn btn-success addQbtn" onClick={handleButtonClick}>
                             Add
                         </button>
                         {fields.map((field, index) => (
@@ -285,46 +321,9 @@ function AddQ() {
                             </div>
                         ))}
                     </div>
-
-                    <div className="container">
-                        <div className="mb-3 question hint">
-                            <label
-                                htmlFor="exampleFormControlTextarea1"
-                                className="form-label"
-                            >
-                                <b>Hint</b>
-                            </label>
-                            <textarea
-                                className="form-control"
-                                id="hintTextarea"
-                                value={hintValue}
-                                onChange={handleChangeHint}
-                                name="hint"
-                                rows="3"
-                            ></textarea>
-                        </div>
-                    </div>
-                    <div className="container">
-                        <div className="mb-3 question solution">
-                            <label
-                                htmlFor="exampleFormControlTextarea1"
-                                className="form-label"
-                            >
-                                <b>Solution</b>
-                            </label>
-                            <textarea
-                                className="form-control"
-                                id="hintTextarea"
-                                value={solutionValue}
-                                onChange={handleChangeSolution}
-                                name="hint"
-                                rows="3"
-                            ></textarea>
-                        </div>
-                    </div>
                 </div>
                 <div className="mb-3 textarea">
-                    <p>Priview</p>
+                    <p>Preview</p>
                     <form action="/api/v1/users/saveQuestion" method="post" onSubmit={handleSubmit}> <label htmlFor="exampleFormControlTextarea1" className="form-label preInput" ><b>Question</b></label>
                         &nbsp;<input type="text" className='qInput' value={previewQValue || ''} readOnly name='question' onChange={(event) => setPreviewQValue(event.target.value)} />
 
@@ -341,21 +340,7 @@ function AddQ() {
                         value={previewHValue || ""}
                         readOnly
                     />
-                    <label
-                        htmlFor="exampleFormControlTextarea1"
-                        className="form-label preInput"
-                    >
-                        <b>Options</b>
-                    </label>
-                    {fields.map((field, index) => (
-                            
-                            <div key={index} className="checkBox">
-                            <input type="checkbox" checked={field.correct} readOnly />
-                            <span>{field.question}</span>
-                            <span>{field.correct}</span>
-                          </div>
-
-                    ))}
+                   
 
 
                     <label

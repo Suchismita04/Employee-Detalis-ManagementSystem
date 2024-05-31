@@ -1,0 +1,13 @@
+.logo{
+    width: 8rem;
+    position: absolute;
+    border-radius: 50px;
+    left: 1rem;
+    height: 8rem;
+    top: -2rem;
+}
+.logoName{
+    position: relative;
+    /* right: -6rem; */
+    left: 5rem;
+}

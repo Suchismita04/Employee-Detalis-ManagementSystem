@@ -10,8 +10,8 @@ const questionSchema = new mongoose.Schema({
         type: String,
         default:'Suchismita'
     },
-    topics: {
-        type: [String],
+    topic: {
+        type: String,
         required: true
     }
 });

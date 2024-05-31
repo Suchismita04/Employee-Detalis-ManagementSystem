@@ -26,18 +26,18 @@ export const data = [
       topics: [
         {
           id: 1,
-          name: "Physics",
+          name: "Logical Reasoning",
           courses: ["Optics", "Rotational Motion", "Laws & Motion"],
         },
         {
           id: 2,
-          name: "Chemistry",
+          name: "Algebra",
           courses: ["Polymers", "Hydrogen", "P Block Element"],
         },
         {
           id: 3,
-          name: "Mathematics",
-          courses: ["Calculas", "Algebra", "Trigonometry"],
+          name: "Data Analysis",
+          courses: ["C++", "Python", "Node js"],
         },
       ],
     },
@@ -52,18 +52,18 @@ export const data = [
         },
         {
           id: 2,
-          name: "Chemistry",
+          name: "Botany",
           courses: ["Polymers", "Hydrogen", "P Block Element"],
         },
         {
           id: 3,
-          name: "Mathematics",
+          name: "Zoology",
           courses: ["Calculas", "Algebra", "Trigonometry"],
         },
       ],
     },
     {
-      names: "jeemat",
+      names: "jemat",
       _id: 4,
       topics: [
         {

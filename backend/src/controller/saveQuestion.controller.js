@@ -36,7 +36,7 @@ const saveQuestion = asyncHandler(async (req, res) => {
 const showQinfo=asyncHandler(async(req,res)=>{
  try {
    const showData=await SaveQuestion.find()
-   console.log("res=",showData)
+  //  console.log("res=",showData)
    res.json(showData)
    
  } catch (error) {
